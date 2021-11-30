@@ -20,8 +20,8 @@ describe('Alert', () => {
     const alertBySelector = new Alert('.alert')
     const alertByElement = new Alert(alertEl)
 
-    expect(alertBySelector._element).toEqual(alertEl)
-    expect(alertByElement._element).toEqual(alertEl)
+    expect(alertBySelector._element).toBe(alertEl)
+    expect(alertByElement._element).toBe(alertEl)
   })
 
   it('should return version', () => {
@@ -216,7 +216,7 @@ describe('Alert', () => {
       const div = fixtureEl.querySelector('div')
       const alert = new Alert(div)
 
-      expect(Alert.getInstance(div)).toEqual(alert)
+      expect(Alert.getInstance(div)).toBe(alert)
       expect(Alert.getInstance(div)).toBeInstanceOf(Alert)
     })
 
@@ -236,8 +236,8 @@ describe('Alert', () => {
       const div = fixtureEl.querySelector('div')
       const alert = new Alert(div)
 
-      expect(Alert.getOrCreateInstance(div)).toEqual(alert)
-      expect(Alert.getInstance(div)).toEqual(Alert.getOrCreateInstance(div, {}))
+      expect(Alert.getOrCreateInstance(div)).toBe(alert)
+      expect(Alert.getInstance(div)).toBe(Alert.getOrCreateInstance(div, {}))
       expect(Alert.getOrCreateInstance(div)).toBeInstanceOf(Alert)
     })
 

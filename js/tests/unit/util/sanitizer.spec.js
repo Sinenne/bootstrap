@@ -7,7 +7,7 @@ describe('Sanitizer', () => {
 
       const result = sanitizeHtml(empty, DefaultAllowlist, null)
 
-      expect(result).toEqual(empty)
+      expect(result).toBe(empty)
     })
 
     it('should sanitize template by removing tags with XSS', () => {
@@ -88,7 +88,7 @@ describe('Sanitizer', () => {
 
       const result = sanitizeHtml(template, DefaultAllowlist, mySanitize)
 
-      expect(result).toEqual(template)
+      expect(result).toBe(template)
       expect(DOMParser.prototype.parseFromString).not.toHaveBeenCalled()
     })
 

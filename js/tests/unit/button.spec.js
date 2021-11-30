@@ -18,8 +18,8 @@ describe('Button', () => {
     const buttonBySelector = new Button('[data-bs-toggle="button"]')
     const buttonByElement = new Button(buttonEl)
 
-    expect(buttonBySelector._element).toEqual(buttonEl)
-    expect(buttonByElement._element).toEqual(buttonEl)
+    expect(buttonBySelector._element).toBe(buttonEl)
+    expect(buttonByElement._element).toBe(buttonEl)
   })
 
   describe('VERSION', () => {
@@ -146,7 +146,7 @@ describe('Button', () => {
       const div = fixtureEl.querySelector('div')
       const button = new Button(div)
 
-      expect(Button.getInstance(div)).toEqual(button)
+      expect(Button.getInstance(div)).toBe(button)
       expect(Button.getInstance(div)).toBeInstanceOf(Button)
     })
 
@@ -166,8 +166,8 @@ describe('Button', () => {
       const div = fixtureEl.querySelector('div')
       const button = new Button(div)
 
-      expect(Button.getOrCreateInstance(div)).toEqual(button)
-      expect(Button.getInstance(div)).toEqual(Button.getOrCreateInstance(div, {}))
+      expect(Button.getOrCreateInstance(div)).toBe(button)
+      expect(Button.getInstance(div)).toBe(Button.getOrCreateInstance(div, {}))
       expect(Button.getOrCreateInstance(div)).toBeInstanceOf(Button)
     })
 

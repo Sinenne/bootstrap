@@ -59,8 +59,8 @@ describe('Carousel', () => {
       const carouselBySelector = new Carousel('#myCarousel')
       const carouselByElement = new Carousel(carouselEl)
 
-      expect(carouselBySelector._element).toEqual(carouselEl)
-      expect(carouselByElement._element).toEqual(carouselEl)
+      expect(carouselBySelector._element).toBe(carouselEl)
+      expect(carouselByElement._element).toBe(carouselEl)
     })
 
     it('should go to next item if right arrow key is pressed', done => {
@@ -736,7 +736,7 @@ describe('Carousel', () => {
 
       carousel.next()
 
-      expect(carousel._activeElement).toEqual(secondItemEl)
+      expect(carousel._activeElement).toBe(secondItemEl)
     })
 
     it('should update indicators if present', done => {
@@ -1283,7 +1283,7 @@ describe('Carousel', () => {
       const div = fixtureEl.querySelector('div')
       const carousel = new Carousel(div)
 
-      expect(Carousel.getInstance(div)).toEqual(carousel)
+      expect(Carousel.getInstance(div)).toBe(carousel)
       expect(Carousel.getInstance(div)).toBeInstanceOf(Carousel)
     })
 
@@ -1303,8 +1303,8 @@ describe('Carousel', () => {
       const div = fixtureEl.querySelector('div')
       const carousel = new Carousel(div)
 
-      expect(Carousel.getOrCreateInstance(div)).toEqual(carousel)
-      expect(Carousel.getInstance(div)).toEqual(Carousel.getOrCreateInstance(div, {}))
+      expect(Carousel.getOrCreateInstance(div)).toBe(carousel)
+      expect(Carousel.getInstance(div)).toBe(Carousel.getOrCreateInstance(div, {}))
       expect(Carousel.getOrCreateInstance(div)).toBeInstanceOf(Carousel)
     })
 
@@ -1338,13 +1338,13 @@ describe('Carousel', () => {
       const carousel = new Carousel(div, {
         interval: 1
       })
-      expect(Carousel.getInstance(div)).toEqual(carousel)
+      expect(Carousel.getInstance(div)).toBe(carousel)
 
       const carousel2 = Carousel.getOrCreateInstance(div, {
         interval: 2
       })
       expect(carousel).toBeInstanceOf(Carousel)
-      expect(carousel2).toEqual(carousel)
+      expect(carousel2).toBe(carousel)
 
       expect(carousel2._config.interval).toBe(1)
     })
@@ -1375,7 +1375,7 @@ describe('Carousel', () => {
 
       jQueryMock.fn.carousel.call(jQueryMock)
 
-      expect(Carousel.getInstance(div)).toEqual(carousel)
+      expect(Carousel.getInstance(div)).toBe(carousel)
     })
 
     it('should call to if the config is a number', () => {

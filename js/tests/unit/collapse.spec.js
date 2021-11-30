@@ -39,8 +39,8 @@ describe('Collapse', () => {
       const collapseBySelector = new Collapse('div.my-collapse')
       const collapseByElement = new Collapse(collapseEl)
 
-      expect(collapseBySelector._element).toEqual(collapseEl)
-      expect(collapseByElement._element).toEqual(collapseEl)
+      expect(collapseBySelector._element).toBe(collapseEl)
+      expect(collapseByElement._element).toBe(collapseEl)
     })
 
     it('should allow jquery object in parent config', () => {
@@ -63,7 +63,7 @@ describe('Collapse', () => {
         parent: fakejQueryObject
       })
 
-      expect(collapse._config.parent).toEqual(myCollapseEl)
+      expect(collapse._config.parent).toBe(myCollapseEl)
     })
 
     it('should allow non jquery object in parent config', () => {
@@ -82,7 +82,7 @@ describe('Collapse', () => {
         parent: myCollapseEl
       })
 
-      expect(collapse._config.parent).toEqual(myCollapseEl)
+      expect(collapse._config.parent).toBe(myCollapseEl)
     })
 
     it('should allow string selector in parent config', () => {
@@ -101,7 +101,7 @@ describe('Collapse', () => {
         parent: 'div.my-collapse'
       })
 
-      expect(collapse._config.parent).toEqual(myCollapseEl)
+      expect(collapse._config.parent).toBe(myCollapseEl)
     })
   })
 
@@ -485,7 +485,7 @@ describe('Collapse', () => {
         toggle: false
       })
 
-      expect(Collapse.getInstance(collapseEl)).toEqual(collapse)
+      expect(Collapse.getInstance(collapseEl)).toBe(collapse)
 
       collapse.dispose()
 
@@ -927,7 +927,7 @@ describe('Collapse', () => {
 
       jQueryMock.fn.collapse.call(jQueryMock)
 
-      expect(Collapse.getInstance(div)).toEqual(collapse)
+      expect(Collapse.getInstance(div)).toBe(collapse)
     })
 
     it('should throw error on undefined method', () => {
@@ -952,7 +952,7 @@ describe('Collapse', () => {
       const div = fixtureEl.querySelector('div')
       const collapse = new Collapse(div)
 
-      expect(Collapse.getInstance(div)).toEqual(collapse)
+      expect(Collapse.getInstance(div)).toBe(collapse)
       expect(Collapse.getInstance(div)).toBeInstanceOf(Collapse)
     })
 
@@ -972,8 +972,8 @@ describe('Collapse', () => {
       const div = fixtureEl.querySelector('div')
       const collapse = new Collapse(div)
 
-      expect(Collapse.getOrCreateInstance(div)).toEqual(collapse)
-      expect(Collapse.getInstance(div)).toEqual(Collapse.getOrCreateInstance(div, {}))
+      expect(Collapse.getOrCreateInstance(div)).toBe(collapse)
+      expect(Collapse.getInstance(div)).toBe(Collapse.getOrCreateInstance(div, {}))
       expect(Collapse.getOrCreateInstance(div)).toBeInstanceOf(Collapse)
     })
 
@@ -1007,13 +1007,13 @@ describe('Collapse', () => {
       const collapse = new Collapse(div, {
         toggle: false
       })
-      expect(Collapse.getInstance(div)).toEqual(collapse)
+      expect(Collapse.getInstance(div)).toBe(collapse)
 
       const collapse2 = Collapse.getOrCreateInstance(div, {
         toggle: true
       })
       expect(collapse).toBeInstanceOf(Collapse)
-      expect(collapse2).toEqual(collapse)
+      expect(collapse2).toBe(collapse)
 
       expect(collapse2._config.toggle).toBeFalse()
     })
